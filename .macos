@@ -939,9 +939,8 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
-
+echo "Starting to kill affected applications"
 for app in "Activity Monitor" \
-    "Address Book" \
     "Calendar" \
     "cfprefsd" \
     "Contacts" \
