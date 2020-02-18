@@ -17,11 +17,27 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+# Set computer name
+
+ComputerName=`/usr/bin/osascript << EOT
+tell application "System Events"
+    activate 
+    set ComputerName to text returned of (display dialog "Please Input New Computer Name" default answer "" with icon 2)
+end tell
+EOT`
+
+echo $ComputerName
+scutil --set HostName $ComputerName
+scutil --set LocalHostName $ComputerName
+scutil --set ComputerName $ComputerName
+
+echo "Named succesfully"
+
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "MacBook Dries"
-sudo scutil --set HostName "MacBook Dries"
-sudo scutil --set LocalHostName "MacBook Dries"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MacBook Dries"
+#sudo scutil --set ComputerName "MacBook Lieselot"
+#sudo scutil --set HostName "MacBook Lieselot"
+#sudo scutil --set LocalHostName "MacBook Dries"
+#sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MacBook Dries"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
