@@ -102,6 +102,7 @@ cask 'font-source-serif-pro'
 # Mac App Store
 mas 'BetterSnapTool', id: 417375580
 mas 'Color Picker', id: 641027709
+mas 'GarageBand', id: 682658836
 mas 'GoodNotes', id: 1480793815
 mas 'Keynote', id: 409183694
 mas 'Mediunic', id: 1088945121
