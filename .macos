@@ -971,4 +971,4 @@ done
 for f in *; do xattr -dr com.apple.quarantine "$f" 2>/dev/null; done
 
 
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+echo "Done. Note that some of these changes require a logout/restart to take effect. Also sometimes an app gives a warning that it can't be opened, just go to the Applications folder and click open twice."
