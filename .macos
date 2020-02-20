@@ -941,12 +941,6 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 #defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 ###############################################################################
-# Remove Can't be opened because Apple cannot check it for malicious software #                                                               #
-###############################################################################
-
-for f in *; do xattr -dr com.apple.quarantine "$f" 2>/dev/null; done
-
-###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 echo "Starting to kill affected applications"
@@ -969,4 +963,12 @@ for app in "Activity Monitor" \
     "Twitter"; do
     killall "${app}" &> /dev/null
 done
+
+###############################################################################
+# Remove Can't be opened because Apple cannot check it for malicious software #                                                               #
+###############################################################################
+
+for f in *; do xattr -dr com.apple.quarantine "$f" 2>/dev/null; done
+
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."
